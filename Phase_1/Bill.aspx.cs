@@ -33,7 +33,7 @@ namespace Phase_1
         }
         public void Grid_bind()
         {
-            string s = "select Order_Tab.Cart_Id,Product_Tab.Pro_Name,Order_Tab.Cart_Quantity,Product_Tab.Pro_Price,Order_Tab.Total_Price from Product_Tab join Order_Tab on Product_Tab.Pro_Id=Order_Tab.Pro_Id where User_Id=" + Session["uid"] + "";
+            string s = "select Order_Tab.Cart_Id,Product_Tab.Pro_Name,Order_Tab.Cart_Quantity,Product_Tab.Pro_Price,Order_Tab.Total_Price from Product_Tab join Order_Tab on Product_Tab.Pro_Id=Order_Tab.Pro_Id where User_Id=" + Session["uid"] + " and where Order_Status='Order confirmed'";
             DataSet ds = obj.Fn_Adapter(s);
             GridView1.DataSource = ds;
             GridView1.DataBind();
